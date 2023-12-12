@@ -48,9 +48,12 @@ def detect_objects_on_image(buf):
         ]
         class_id = box.cls[0].item()
         prob = round(box.conf[0].item(), 2)
+        prob_percentage = f"{prob * 100:.2f}%"
         output.append([
-            x1, y1, x2, y2, result.names[class_id], prob
+            x1, y1, x2, y2, result.names[class_id], prob_percentage
         ])
+
+
     return output
 
 
